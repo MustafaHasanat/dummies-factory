@@ -15,9 +15,11 @@
         "paths": {
             "__tests__/*": ["__tests__/*"],
             "*": ["*"]
-        }
+        },
+        "strictNullChecks": true,
+        "strictPropertyInitialization": true
     },
-    "include": ["**/*.ts", "lib/**/*.(ts|js)"],
+    "include": ["**/*.ts", "lib/**/*.(ts|js)", "lib/**/*.d.(ts|js)"],
     "exclude": ["node_modules", "bin"],
     "files": ["index.ts"]
 }

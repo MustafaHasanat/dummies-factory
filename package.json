@@ -16,12 +16,12 @@
   },
   "files": [
     "dist",
-    "lib"
+    "dist/lib/",
+    "lib/**/*.(ts|js)"
   ],
   "scripts": {
     "test": "jest",
     "build": "rimraf ./dist && tsc",
-    "acp": "git add . && git commit -m 'next-dev-release' && git push",
     "format": "prettier --write .",
     "lint": "eslint ."
   },
