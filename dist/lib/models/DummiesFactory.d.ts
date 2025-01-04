@@ -10,7 +10,7 @@ export declare class DummiesFactory {
      *
      * @param param0
      */
-    constructor({ shape, arrayLength, }: DummiesFactoryProps);
+    constructor({ shape, arrayLength }: DummiesFactoryProps);
     /**
      * Returns the current arrayLength
      *

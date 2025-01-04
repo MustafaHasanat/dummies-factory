@@ -23,8 +23,7 @@ export function validateShape({
             throw new Error(
                 `The following props are not allowed while using the string type: 'decimalPlaces', 'max', 'min', 'numericType'`
             );
-    }
-    else if (type === "number") {
+    } else if (type === "number") {
         if (theme)
             throw new Error(
                 `The following props are not allowed while using the string type: 'theme'`

@@ -1,2 +1,6 @@
-export { validateFactoryConstructor, validateArrayLength, validateShape, } from "./factory";
+export {
+    validateFactoryConstructor,
+    validateArrayLength,
+    validateShape,
+} from "./factory";
 //# sourceMappingURL=index.js.map

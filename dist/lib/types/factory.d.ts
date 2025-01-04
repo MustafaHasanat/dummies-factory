@@ -12,7 +12,15 @@ export type DummiesFactoryItemType = "string" | "number" | "array" | "object";
 /**
  * The type of the DummiesFactory class resultant objects' items
  */
-export type DummiesFactoryStringTheme = "uuid" | "sport" | "food" | "videoGames" | "american-names" | "arabic-names" | "country" | "place";
+export type DummiesFactoryStringTheme =
+    | "uuid"
+    | "sport"
+    | "food"
+    | "videoGames"
+    | "american-names"
+    | "arabic-names"
+    | "country"
+    | "place";
 export type DummiesFactoryNumericType = "integer" | "decimal";
 export type DummiesFactoryItemsCollectionType = string[];
 /**

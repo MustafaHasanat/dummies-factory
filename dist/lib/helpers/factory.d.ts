@@ -1,5 +1,14 @@
-export declare function getRandomItems(array: any[], length: number): string | string[];
-export declare function generateRandomArray({ length, type, min, max, decimalPlaces, }: {
+export declare function getRandomItems(
+    array: any[],
+    length: number
+): string | string[];
+export declare function generateRandomArray({
+    length,
+    type,
+    min,
+    max,
+    decimalPlaces,
+}: {
     length: number;
     min: number;
     max: number;

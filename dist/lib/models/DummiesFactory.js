@@ -1,5 +1,19 @@
-import { americanNamesCollection, arabicNamesCollection, countriesCollection, DEFAULT_FACTORY_ARRAY_LENGTH, foodsCollection, generateRandomUUIDs, placesCollection, sportsCollection, videoGamesCollection, } from "../constants";
-import { validateArrayLength, validateFactoryConstructor, validateShape, } from "../validators";
+import {
+    americanNamesCollection,
+    arabicNamesCollection,
+    countriesCollection,
+    DEFAULT_FACTORY_ARRAY_LENGTH,
+    foodsCollection,
+    generateRandomUUIDs,
+    placesCollection,
+    sportsCollection,
+    videoGamesCollection,
+} from "../constants";
+import {
+    validateArrayLength,
+    validateFactoryConstructor,
+    validateShape,
+} from "../validators";
 import { generateRandomArray, getRandomItems } from "../helpers";
 /**
  *
@@ -9,7 +23,7 @@ export class DummiesFactory {
      *
      * @param param0
      */
-    constructor({ shape, arrayLength = DEFAULT_FACTORY_ARRAY_LENGTH, }) {
+    constructor({ shape, arrayLength = DEFAULT_FACTORY_ARRAY_LENGTH }) {
         validateFactoryConstructor({
             arrayLength,
             shape,
@@ -53,7 +67,7 @@ export class DummiesFactory {
         this.shape = shape;
         this.array = this.getArrayFromShape({ shape });
     }
-    getArrayFromShape({ shape, arrayLength = DEFAULT_FACTORY_ARRAY_LENGTH, }) {
+    getArrayFromShape({ shape, arrayLength = DEFAULT_FACTORY_ARRAY_LENGTH }) {
         if (shape.type === "string")
             return this.getRandomStringArray({
                 length: arrayLength,
@@ -87,15 +101,13 @@ export class DummiesFactory {
      *
      * @returns array of thematic string
      */
-    getRandomStringArray({ length, theme, }) {
-        if (theme === "sport")
-            return getRandomItems(sportsCollection, length);
+    getRandomStringArray({ length, theme }) {
+        if (theme === "sport") return getRandomItems(sportsCollection, length);
         else if (theme === "food")
             return getRandomItems(foodsCollection, length);
         else if (theme === "videoGames")
             return getRandomItems(videoGamesCollection, length);
-        else if (theme === "uuid")
-            return generateRandomUUIDs(length);
+        else if (theme === "uuid") return generateRandomUUIDs(length);
         else if (theme === "american-names")
             return getRandomItems(americanNamesCollection, length);
         else if (theme === "arabic-names")
@@ -104,8 +116,7 @@ export class DummiesFactory {
             return getRandomItems(countriesCollection, length);
         else if (theme === "place")
             return getRandomItems(placesCollection, length);
-        else
-            return [];
+        else return [];
     }
     /**
      * Generate an array of numbers according to the given customizations
@@ -118,7 +129,7 @@ export class DummiesFactory {
      *
      * @returns array of thematic string
      */
-    getRandomNumericArray({ length, numericType, decimalPlaces, max, min, }) {
+    getRandomNumericArray({ length, numericType, decimalPlaces, max, min }) {
         return generateRandomArray({
             length,
             type: numericType,
@@ -127,12 +138,11 @@ export class DummiesFactory {
             min,
         });
     }
-    getRandomArraysArray({ length, arrayOf, }) {
+    getRandomArraysArray({ length, arrayOf }) {
         return [];
     }
-    getRandomObjectArray({ length, properties, }) {
-        if (!properties)
-            return [];
+    getRandomObjectArray({ length, properties }) {
+        if (!properties) return [];
         const array = [];
         new Array(length).fill(0).forEach(() => {
             const object = {};
@@ -153,9 +163,7 @@ export class DummiesFactory {
      */
     getArray() {
         const currentArray = this.array;
-        return currentArray.length === 0
-            ? []
-            : currentArray;
+        return currentArray.length === 0 ? [] : currentArray;
     }
 }
 //# sourceMappingURL=DummiesFactory.js.map

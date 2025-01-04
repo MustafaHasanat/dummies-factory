@@ -1,1 +1,5 @@
-export { validateFactoryConstructor, validateArrayLength, validateShape, } from "./factory";
+export {
+    validateFactoryConstructor,
+    validateArrayLength,
+    validateShape,
+} from "./factory";
