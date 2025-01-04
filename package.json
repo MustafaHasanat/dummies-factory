@@ -1,19 +1,25 @@
 {
-  "name": "@kaiser-leap/dummy-factory",
+  "name": "@kaiser-leap/dummies-factory",
   "version": "0.0.1-development",
   "description": "Create dummy object arrays using a one-liner!",
   "author": "Kaiser Leap - Mustafa Alhasanat",
   "license": "ISC",
-  "main": "./bin/main.js",
-  "exports": "./bin/main.js",
+  "main": "./bin/index.js",
   "type": "module",
-  "publishConfig": {  
-    "access": "public"
+  "types": "./bin/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./bin/index.d.ts",
+      "import": "./bin/index.mjs",
+      "require": "./bin/index.js"
+    }
   },
+  "files": [
+    "bin"
+  ],
   "scripts": {
     "test": "jest",
     "commit": "git-cz",
-    "start": "node bin/main.js",
     "build": "rimraf ./bin && tsc",
     "install-g": "npm install -g .",
     "globalize": "npm run build && npm run install-g",
@@ -23,9 +29,12 @@
     "prerelease": "npm run build",
     "lint": "eslint ."
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MustafaHasanat/dummy-factory.git"
+    "url": "https://github.com/MustafaHasanat/dummies-factory.git"
   },
   "keywords": [
     "javascript",
@@ -33,9 +42,9 @@
     "npm-tool"
   ],
   "bugs": {
-    "url": "https://github.com/MustafaHasanat/dummy-factory/issues"
+    "url": "https://github.com/MustafaHasanat/dummies-factory/issues"
   },
-  "homepage": "https://github.com/MustafaHasanat/dummy-factory#readme",
+  "homepage": "https://github.com/MustafaHasanat/dummies-factory#readme",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
@@ -46,10 +55,6 @@
       "main"
     ]
   },
-  "files": [
-    "main.js",
-    "bin/lib/"
-  ],
   "dependencies": {
     "commander": "^11.1.0",
     "cz-conventional-changelog": "^3.3.0",

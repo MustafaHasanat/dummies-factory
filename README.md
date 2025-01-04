@@ -1,1 +1,1 @@
-# Dummy Factory
+# Dummies Factory
