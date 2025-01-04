@@ -1,6 +1,6 @@
 {
   "name": "@kaiserleap/dummies-factory",
-  "version": "0.0.3development",
+  "version": "1.0.0",
   "description": "Create dummy object arrays using a one-liner!",
   "author": "Kaiser Leap - Mustafa Alhasanat",
   "license": "ISC",

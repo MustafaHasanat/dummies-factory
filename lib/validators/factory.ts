@@ -10,7 +10,27 @@ export function validateArrayLength(
     }
 }
 
-export function validateShape(shape: DummiesFactoryProps["shape"]) {}
+export function validateShape({
+    type,
+    decimalPlaces,
+    max,
+    min,
+    numericType,
+    theme,
+}: DummiesFactoryProps["shape"]) {
+    if (type === "string") {
+        if (decimalPlaces || max || min || numericType)
+            throw new Error(
+                `The following props are not allowed while using the string type: 'decimalPlaces', 'max', 'min', 'numericType'`
+            );
+    }
+    else if (type === "number") {
+        if (theme)
+            throw new Error(
+                `The following props are not allowed while using the string type: 'theme'`
+            );
+    }
+}
 
 export function validateFactoryConstructor({
     arrayLength,

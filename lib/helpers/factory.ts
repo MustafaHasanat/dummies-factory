@@ -1,6 +1,9 @@
-export function getRandomItems(array: any[], length: number) {
+export function getRandomItems(
+    array: any[],
+    length: number
+): string | string[] {
     const shuffled = array.sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, length);
+    return length === 1 ? shuffled[0] : shuffled.slice(0, length);
 }
 
 export function generateRandomArray({
@@ -30,5 +33,5 @@ export function generateRandomArray({
         result.push(randomValue);
     }
 
-    return result;
+    return length === 1 ? result[0] : result;
 }

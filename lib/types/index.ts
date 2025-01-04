@@ -3,7 +3,6 @@ export {
     DummiesFactoryShape,
     DummiesFactoryItemType,
     DummiesFactoryItemsCollectionType,
-    DummiesFactoryArrayType,
     DummiesFactoryNumericType,
     DummiesFactoryStringTheme,
 } from "./factory";

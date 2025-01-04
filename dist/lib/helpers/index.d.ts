@@ -1,1 +1,0 @@
-export { getRandomItems } from "./factory";
