@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "ESNext",
+        "allowJs": true,
+        "outDir": "./bin",
+        "strict": true,
+        "noImplicitAny": true,
+        "esModuleInterop": true,
+        "sourceMap": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "declaration": true,
+        "baseUrl": ".",
+        "paths": {
+            "__tests__/*": ["__tests__/*"],
+            "*": ["*"]
+        }
+    },
+    "include": ["**/*.ts", "lib/**/*.(ts|js)"],
+    "exclude": ["node_modules", "bin"],
+    "files": ["main.ts"]
+}
