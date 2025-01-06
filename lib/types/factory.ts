@@ -1,17 +1,33 @@
 /**
  * The props for the DummiesFactory class constructor
  */
-export interface DummiesFactoryProps {
+export type BaseFactoryProps = {
     // required
     shape: DummiesFactoryShape;
     // optional
     arrayLength?: number;
-}
+};
+
+export type ApiFactoryProps = {
+    backendUrl?: string;
+};
 
 /**
  * The type of the DummiesFactory class resultant objects' items
  */
-export type DummiesFactoryItemType = "string" | "number" | "array" | "object";
+export type DummiesFactoryItemType =
+    | "string"
+    | "enum"
+    | "number"
+    | "array"
+    | "object";
+
+export type DummiesFactoryEnumOptionsType = (
+    | string
+    | number
+    | any[]
+    | { [key: string]: any }
+)[];
 
 /**
  * The type of the DummiesFactory class resultant objects' items
@@ -25,6 +41,7 @@ export type DummiesFactoryStringTheme =
     | "arabic-names"
     | "country"
     | "place";
+
 export type DummiesFactoryNumericType = "integer" | "decimal";
 
 export type DummiesFactoryItemsCollectionType = string[];
@@ -37,6 +54,8 @@ export type DummiesFactoryShape = {
     type: DummiesFactoryItemType;
     // string props
     theme?: DummiesFactoryStringTheme;
+    // enum props
+    options?: DummiesFactoryEnumOptionsType;
     // numeric props
     numericType?: DummiesFactoryNumericType;
     min?: number;
@@ -44,6 +63,7 @@ export type DummiesFactoryShape = {
     decimalPlaces?: number;
     // array props
     arrayOf?: DummiesFactoryShape;
+    arrayLength?: number;
     // object props
     properties?: { [key: string]: DummiesFactoryShape };
 };

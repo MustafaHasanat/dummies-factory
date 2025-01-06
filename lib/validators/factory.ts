@@ -1,7 +1,7 @@
-import { DummiesFactoryProps } from "../types";
+import { ApiFactoryProps, BaseFactoryProps } from "../types";
 
 export function validateArrayLength(
-    arrayLength: DummiesFactoryProps["arrayLength"]
+    arrayLength: BaseFactoryProps["arrayLength"]
 ) {
     if (Number(arrayLength) < 1) {
         throw new Error(
@@ -17,7 +17,7 @@ export function validateShape({
     min,
     numericType,
     theme,
-}: DummiesFactoryProps["shape"]) {
+}: BaseFactoryProps["shape"]) {
     if (type === "string") {
         if (decimalPlaces || max || min || numericType)
             throw new Error(
@@ -31,10 +31,18 @@ export function validateShape({
     }
 }
 
+export function validateBackendUrl(backendUrl: ApiFactoryProps["backendUrl"]) {
+    if (!backendUrl) {
+        throw new Error(`Backend Url must be a valid url, got "${backendUrl}"`);
+    }
+}
+
 export function validateFactoryConstructor({
     arrayLength,
     shape,
-}: DummiesFactoryProps): void {
+    backendUrl,
+}: BaseFactoryProps & ApiFactoryProps): void {
     validateArrayLength(arrayLength);
+    validateBackendUrl(backendUrl);
     validateShape(shape);
 }
