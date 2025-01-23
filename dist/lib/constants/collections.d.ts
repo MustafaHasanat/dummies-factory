@@ -6,4 +6,4 @@ export declare const americanNamesCollection: string[];
 export declare const arabicNamesCollection: string[];
 export declare const countriesCollection: string[];
 export declare const placesCollection: string[];
-export declare const generateRandomUUIDs: (length: number) => string | string[];
+export declare const skillsCollection: string[];

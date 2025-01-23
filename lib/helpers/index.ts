@@ -1,2 +1,6 @@
 export { classMix } from "./models";
-export { getRandomItems, generateRandomArray } from "./factory";
+export {
+    generateRandomUUIDs,
+    getRandomItems,
+    generateRandomArray,
+} from "./factory";

@@ -12,9 +12,9 @@ export class DummiesFactory extends RandomizerFactory {
      */
     constructor(
         shape: BaseFactoryProps["shape"],
-        arrayLength: BaseFactoryProps["arrayLength"] = DEFAULT_FACTORY_ARRAY_LENGTH,
-        backendUrl: ApiFactoryProps["backendUrl"]
+        arrayLength?: BaseFactoryProps["arrayLength"],
+        backendUrl?: ApiFactoryProps["backendUrl"]
     ) {
-        super(shape, arrayLength, backendUrl);
+        super(shape, arrayLength || DEFAULT_FACTORY_ARRAY_LENGTH, backendUrl);
     }
 }

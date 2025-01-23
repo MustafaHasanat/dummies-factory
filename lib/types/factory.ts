@@ -40,6 +40,7 @@ export type DummiesFactoryStringTheme =
     | "american-names"
     | "arabic-names"
     | "country"
+    | "skills"
     | "place";
 
 export type DummiesFactoryNumericType = "integer" | "decimal";

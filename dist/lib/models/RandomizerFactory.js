@@ -1,25 +1,7 @@
-import {
-    ApiFactoryProps,
-    BaseFactoryProps,
-    DummiesFactoryNumericType,
-    DummiesFactoryShape,
-    DummiesFactoryStringTheme,
-} from "../types";
-import {
-    americanNamesCollection,
-    arabicNamesCollection,
-    countriesCollection,
-    DEFAULT_FACTORY_ARRAY_LENGTH,
-    foodsCollection,
-    placesCollection,
-    skillsCollection,
-    sportsCollection,
-    videoGamesCollection,
-} from "../constants";
+import { americanNamesCollection, arabicNamesCollection, countriesCollection, DEFAULT_FACTORY_ARRAY_LENGTH, foodsCollection, placesCollection, skillsCollection, sportsCollection, videoGamesCollection, } from "../constants";
 import { validateShape } from "../validators";
 import { generateRandomArray, generateRandomUUIDs, getRandomItems } from "../helpers";
 import { ApiFactory } from "./ApiFactory";
-
 /**
  *
  */
@@ -28,31 +10,21 @@ export class RandomizerFactory extends ApiFactory {
      *
      * @param param0
      */
-    constructor(
-        shape: BaseFactoryProps["shape"],
-        arrayLength: BaseFactoryProps["arrayLength"] = DEFAULT_FACTORY_ARRAY_LENGTH,
-        backendUrl: ApiFactoryProps["backendUrl"]
-    ) {
+    constructor(shape, arrayLength = DEFAULT_FACTORY_ARRAY_LENGTH, backendUrl) {
         super(shape, arrayLength, backendUrl);
-
         this.array = this.getArrayFromShape({ shape, arrayLength });
     }
-
     /**
      * Adjust the current shape
      *
      * @param shape
      */
-    setShape(shape: BaseFactoryProps["shape"]): void {
+    setShape(shape) {
         validateShape(shape);
         this.shape = shape;
         this.array = this.getArrayFromShape({ shape });
     }
-
-    private getArrayFromShape({
-        shape,
-        arrayLength = DEFAULT_FACTORY_ARRAY_LENGTH,
-    }: BaseFactoryProps) {
+    getArrayFromShape({ shape, arrayLength = DEFAULT_FACTORY_ARRAY_LENGTH, }) {
         if (shape.type === "string")
             return this.getRandomStringArray({
                 length: arrayLength,
@@ -80,9 +52,8 @@ export class RandomizerFactory extends ApiFactory {
                 length: arrayLength,
                 properties: shape.properties,
             });
-        return [] as string[];
+        return [];
     }
-
     /**
      * Generate an array of string following the provided theme and length
      *
@@ -91,19 +62,15 @@ export class RandomizerFactory extends ApiFactory {
      *
      * @returns array of thematic string
      */
-    private getRandomStringArray({
-        length,
-        theme,
-    }: {
-        length: number;
-        theme: DummiesFactoryStringTheme;
-    }): string | string[] {
-        if (theme === "sport") return getRandomItems(sportsCollection, length);
+    getRandomStringArray({ length, theme, }) {
+        if (theme === "sport")
+            return getRandomItems(sportsCollection, length);
         else if (theme === "food")
             return getRandomItems(foodsCollection, length);
         else if (theme === "videoGames")
             return getRandomItems(videoGamesCollection, length);
-        else if (theme === "uuid") return generateRandomUUIDs(length);
+        else if (theme === "uuid")
+            return generateRandomUUIDs(length);
         else if (theme === "american-names")
             return getRandomItems(americanNamesCollection, length);
         else if (theme === "arabic-names")
@@ -114,9 +81,9 @@ export class RandomizerFactory extends ApiFactory {
             return getRandomItems(placesCollection, length);
         else if (theme === "skills")
             return getRandomItems(skillsCollection, length);
-        else return [];
+        else
+            return [];
     }
-
     /**
      * Generate an array of numbers according to the given customizations
      *
@@ -128,19 +95,7 @@ export class RandomizerFactory extends ApiFactory {
      *
      * @returns array of thematic string
      */
-    private getRandomNumericArray({
-        length,
-        numericType,
-        decimalPlaces,
-        max,
-        min,
-    }: {
-        length: number;
-        numericType: DummiesFactoryNumericType;
-        decimalPlaces: number;
-        max: number;
-        min: number;
-    }): number | number[] {
+    getRandomNumericArray({ length, numericType, decimalPlaces, max, min, }) {
         return generateRandomArray({
             length,
             type: numericType,
@@ -149,54 +104,34 @@ export class RandomizerFactory extends ApiFactory {
             min,
         });
     }
-
-    private getRandomArraysArray({
-        arrayLength,
-        arrayOf,
-    }: {
-        arrayLength: number;
-        arrayOf?: DummiesFactoryShape;
-    }) {
-        if (!arrayLength || !arrayOf) return [];
-
-        const array: any = [];
-
+    getRandomArraysArray({ arrayLength, arrayOf, }) {
+        if (!arrayLength || !arrayOf)
+            return [];
+        const array = [];
         new Array(length).fill(0).forEach(() => {
             const result = this.getArrayFromShape({
                 shape: arrayOf,
                 arrayLength: 1,
             });
-
             array.push(result);
         });
-
         return array;
     }
-
-    private getRandomObjectArray({
-        length,
-        properties,
-    }: {
-        length: number;
-        properties?: DummiesFactoryShape["properties"];
-    }) {
-        if (!properties) return [];
-
-        const array: any = [];
-
+    getRandomObjectArray({ length, properties, }) {
+        if (!properties)
+            return [];
+        const array = [];
         new Array(length).fill(0).forEach(() => {
-            const object: { [key: string]: any } = {};
-
+            const object = {};
             Object.entries(properties).forEach(([property, shape]) => {
                 object[property] = this.getArrayFromShape({
                     shape,
                     arrayLength: 1,
                 });
             });
-
             array.push(object);
         });
-
         return length === 1 ? array[0] : array;
     }
 }
+//# sourceMappingURL=RandomizerFactory.js.map

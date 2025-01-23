@@ -1,5 +1,4 @@
 export {
-    generateRandomUUIDs,
     americanNamesCollection,
     arabicNamesCollection,
     countriesCollection,
@@ -7,5 +6,6 @@ export {
     placesCollection,
     sportsCollection,
     videoGamesCollection,
+    skillsCollection,
 } from "./collections";
 export { DEFAULT_FACTORY_ARRAY_LENGTH } from "./defaults";

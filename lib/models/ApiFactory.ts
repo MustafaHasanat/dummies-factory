@@ -16,8 +16,8 @@ export class ApiFactory extends BaseFactory {
      */
     constructor(
         shape: BaseFactoryProps["shape"],
-        arrayLength: BaseFactoryProps["arrayLength"],
-        backendUrl: ApiFactoryProps["backendUrl"]
+        arrayLength?: BaseFactoryProps["arrayLength"],
+        backendUrl?: ApiFactoryProps["backendUrl"]
     ) {
         super(shape, arrayLength);
         this.backendUrl = backendUrl;

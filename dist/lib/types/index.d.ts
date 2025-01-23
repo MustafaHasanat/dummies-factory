@@ -1,8 +1,1 @@
-export {
-    DummiesFactoryProps,
-    DummiesFactoryShape,
-    DummiesFactoryItemType,
-    DummiesFactoryItemsCollectionType,
-    DummiesFactoryNumericType,
-    DummiesFactoryStringTheme,
-} from "./factory";
+export { DummiesFactoryShape, DummiesFactoryItemType, DummiesFactoryItemsCollectionType, DummiesFactoryNumericType, DummiesFactoryStringTheme, DummiesFactoryEnumOptionsType, ApiFactoryProps, BaseFactoryProps, } from "./factory";
